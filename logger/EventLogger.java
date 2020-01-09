@@ -7,7 +7,7 @@ public final class EventLogger {
     public static void log(final LogLevel level, String message) {
         switch (level) {
             case NORMAL:
-                System.out.println(message);
+                System.out.println("[Japache] " + message);
                 break;
             case ERROR:
                 System.out.println("[ERROR] " + message);
