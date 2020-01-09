@@ -55,7 +55,7 @@ public class Explorer implements IPage {
         builder.append("table td#nofiles{font-weight:700;color:#C00;text-align:center}");
         builder.append("table td.size{text-align:right}");
         builder.append("--></style></head><body>");
-        builder.append("<h1>Lista plików w <span id='dir'>");
+        builder.append("<h1>Lista plików w katalogu <span id='dir'>");
         builder.append(dirName);
         builder.append("</span></h1><table border='1'><tr><th id='name'>Nazwa</th><th id='size'>Rozmiar</th></tr>");
 
