@@ -8,6 +8,7 @@ import java.nio.file.Files;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import projekt.japache.Japache;
 
 import projekt.japache.logger.EventLogger;
 import projekt.japache.logger.EventLogger.LogLevel;
@@ -107,6 +108,7 @@ public class JapacheHandler implements HttpHandler {
         }
 
         //Ustawienie odpowiedniego MimeType oraz wysłanie odpowiedzi
+        exchange.getResponseHeaders().set("Server", "Japache v" + Japache.JAPACHE_VERSION);
         exchange.getResponseHeaders().set("Content-Type", mimetype);
         exchange.sendResponseHeaders(code, bytes.length);
         OutputStream os = exchange.getResponseBody();

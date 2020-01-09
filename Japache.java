@@ -15,7 +15,7 @@ import projekt.japache.logger.FileLogger;
 
 public class Japache {
     
-    final static String JAPACHE_VERSION = "1.0a";
+    public final static String JAPACHE_VERSION = "1.0a";
 
     public static void main(String[] args) throws IOException {
         EventLogger.log(LogLevel.NORMAL, "Uruchomiono serwer (wersja " + JAPACHE_VERSION + ")");
