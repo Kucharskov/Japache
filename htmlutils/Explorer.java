@@ -68,24 +68,22 @@ public class Explorer implements IPage {
             builder.append("<tr><td colspan='2' id='nofiles'>Brak plikow w katalogu</td></tr>");
         } else {
             //Listowanie wszystkich katalogów
-            for (Path d : dirs) {
+            dirs.forEach((d) -> {
                 String path = getRelativePath(d).toString();
                 String name = "/" + d.getFileName().toString() + "/";
 
                 builder.append(getRow(path, name, "&nbsp;"));
-            }
+            });
             //Listowanie wszystkich plików
-            for (Path f : files) {
+            files.forEach((f) -> {
                 try {
                     String path = getRelativePath(f).toString();
                     String name = f.getFileName().toString();
                     String size = getFormatedSize(f);
 
                     builder.append(getRow(path, name, size));
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
+                } catch (IOException ex) {}
+            });
         }
         builder.append("</table></body></html>");
 
