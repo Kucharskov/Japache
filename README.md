@@ -11,7 +11,7 @@ Projekt został wykonany przez studentów Politechniki Śląskiej na wydziale Wy
 - Możliwość konfiguracji z pliku (plik **config.properties**) opcji takich jak:
   - katalog z danymi
   - adres i port na którym serowana będzie usługa
-  - trub debugowania (rozumiany jako tryb "verbose")
+  - tryb debugowania (rozumiany jako tryb "verbose")
   - listowanie katalogów
 - Generowanie skromnych ale czytelnych błędów typu 501, 404 zgodnych w formatowaniu z Internet Explorer 9
 - Zabezpieczenia przed m. in:
@@ -28,4 +28,3 @@ Projekt został wykonany przez studentów Politechniki Śląskiej na wydziale Wy
 - Dodanie graficznego interfejsu użytkownika (z ciągłym wsparciem dla tekstowych konsoli systemu Linux)
 - Dodanie systemu wielu języków
 - Dodanie obsługi SSL
-> **Notka:** Repozytorium w celach archiwalnych, nie zanosi się na wprowadzanie poprawek :)
