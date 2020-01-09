@@ -13,9 +13,11 @@ import projekt.japache.config.ConfigLoader;
 import projekt.japache.handler.JapacheHandler;
 
 public class Japache {
+    
+    final static String JAPACHE_VERSION = "1.0a";
 
     public static void main(String[] args) throws IOException {
-        EventLogger.log(LogLevel.NORMAL, "Uruchomiono serwer Japache");
+        EventLogger.log(LogLevel.NORMAL, "Uruchomiono serwer (wersja " + JAPACHE_VERSION + ")");
 
         //Pobranie konfiguracji z pliku config.properties
         //oraz przeparsowanie danych na port i hostname serwera
