@@ -42,9 +42,9 @@ public class Explorer implements IPage {
         Path parent = getRelativePath(dir).getParent();
         String dirName = (parent == null) ? "katalog główny" : dir.getFileName().toString();
 
-        builder.append("<!DOCTYPE html><html lang='pl'><html><head><meta charset='UTF-8'><title>Lista plików w '");
+        builder.append("<!DOCTYPE html><html lang='pl'><html><head><meta charset='UTF-8'><title>Lista plików w katalogu: ");
         builder.append(dirName);
-        builder.append("'</title><style><!--");
+        builder.append("</title><style><!--");
         builder.append("html,body{margin:0;padding:0;color:#000;background:#FFF;font-family:Tahoma,Verdana,Arial,sans-serif;font-size:16px}");
         builder.append("h1{margin:50px 0 15px;padding:0;text-align:center}");
         builder.append("#dir{color:#C00}");
