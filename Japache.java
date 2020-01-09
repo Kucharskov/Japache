@@ -33,8 +33,7 @@ public class Japache {
             Boolean clearlog = config.get("log_clear").equals("true");
 
             //Rozpoczęcie zapisu
-            EventLogger.log(LogLevel.NORMAL, "Rozpoczęto logowanie do pliku: " + logfile);
-            EventLogger.setFileLogger(new FileLogger(logfile, clearlog));
+            EventLogger.addLogger(new FileLogger(logfile, clearlog));
         } else {
             EventLogger.log(LogLevel.NORMAL, "Logowanie do pliku jest wyłączone");
         }

@@ -1,20 +1,28 @@
 package projekt.japache.logger;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-//Finalna klasa do zwracania informacji do konsoli
+//Finalna klasa obsługująca logi za pomocą dodanych loggerów
 public final class EventLogger {
 
-    //Pole zawierające instancję klasy logującej do pliku
-    public static FileLogger filelog = null;
+    //Pole zawierające listę logujących instancji
+    private static final ArrayList<ILogger> loggers = new ArrayList<>();
     
-    //Metoda służąca ustaleniu opcji zapisu do pliku
-    public static void setFileLogger(FileLogger filelog) {
-        EventLogger.filelog = filelog;
+    //Statyczny blok inicializujący
+    //Przy uruchomieniu wrzuca do listy domyślne logger konsolowy
+    static {
+        loggers.add(new ConsoleLogger());
     }
     
-    //Metoda wyświetla sformatowaną wcześniej treść w konsoli oraz ewentualnie zapisuje log do pliku
+    //Metoda służąca ustaleniu opcji zapisu do pliku
+    public static void addLogger(ILogger logger) {
+        loggers.add(logger);
+    }
+    
+    //Metoda propagująca spreparowany log do podpiętych loggerów
     public static void log(final LogLevel level, String message) throws IOException {
+        //Formatowanie wartości wyjściowej
         String output = "";
         switch (level) {
             case NORMAL:
@@ -27,11 +35,10 @@ public final class EventLogger {
                 output = "[DEBUG] " + message;
                 break;
         }
-        System.out.println(output);
         
-        //Zapis logu do pliku
-        if(filelog != null) {
-            filelog.log(output + "\n");
+        //Dalsza propagacja
+        for(ILogger l : loggers) {
+            l.log(output);
         }
     }
 
