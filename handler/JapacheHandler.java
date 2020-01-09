@@ -60,8 +60,8 @@ public class JapacheHandler implements HttpHandler {
             response(exchange, 501, response.getBytes("UTF-8"), "text/html");
             return;
         }
-        //Zwrócenie błedu 404 jeżeli plik nie instnieje
-        if (!Files.exists(path)) {
+        //Zwrócenie błedu 404 jeżeli plik nie instnieje lub próbuje się path-traversal
+        if (!Files.exists(path) || !path.toRealPath().startsWith(root.toRealPath())) {
             response = PageFactory.createError(404).getHTML();
             response(exchange, 404, response.getBytes("UTF-8"), "text/html");
             return;
