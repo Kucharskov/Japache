@@ -22,7 +22,7 @@ public class JapacheHandler implements HttpHandler {
     //Pole prywatne zawierające ścieżkę do głównego katalogu z danymi
     private final Path root;
 
-    public JapacheHandler(ConfigLoader config) {
+    public JapacheHandler(ConfigLoader config) throws IOException {
         this.config = config;
         this.root = Paths.get(config.get("root_dir"));
 

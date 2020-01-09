@@ -43,7 +43,7 @@ public class ConfigLoader {
     }
 
     //Metoda do uzupełniania brakujących ustawień w przypadku usunięcia linijki z pliku
-    private void setMissingDefaults() {
+    private void setMissingDefaults() throws IOException {
         String list = "";
         if (!config.containsKey("root_dir")) {
             config.setProperty("root_dir", "data");
@@ -60,6 +60,18 @@ public class ConfigLoader {
         if (!config.containsKey("debug_mode")) {
             config.setProperty("debug_mode", "false");
             list += "debug_mode ";
+        }
+        if (!config.containsKey("log_enable")) {
+            config.setProperty("log_enable", "false");
+            list += "log_enable ";
+        }
+        if (!config.containsKey("log_clear")) {
+            config.setProperty("log_clear", "false");
+            list += "log_clear ";
+        }
+        if (!config.containsKey("log_file")) {
+            config.setProperty("log_file", "logs.txt");
+            list += "log_file ";
         }
         if (!config.containsKey("dir_listing")) {
             config.setProperty("dir_listing", "false");

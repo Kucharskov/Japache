@@ -13,6 +13,7 @@ Projekt został wykonany przez studentów Politechniki Śląskiej na wydziale Wy
   - adres i port na którym serowana będzie usługa
   - tryb debugowania (rozumiany jako tryb "verbose")
   - listowanie katalogów
+  - zapis do pliku (z opcją czyszczenia logów)
 - Generowanie skromnych ale czytelnych błędów typu 501, 404 zgodnych w formatowaniu z Internet Explorer 9
 - Zabezpieczenia przed m. in:
   - wyjściem dostępem poza zadeklarowany katalog z danymi
