@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.channels.FileChannel;
 import java.nio.file.StandardOpenOption;
+
 import projekt.japache.logger.EventLogger.LogLevel;
 
 //Finalna klasa do zapisu logów do pliku

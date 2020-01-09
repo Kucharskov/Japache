@@ -9,9 +9,9 @@ import com.sun.net.httpserver.HttpServer;
 
 import projekt.japache.logger.EventLogger;
 import projekt.japache.logger.EventLogger.LogLevel;
+import projekt.japache.logger.FileLogger;
 import projekt.japache.config.ConfigLoader;
 import projekt.japache.handler.JapacheHandler;
-import projekt.japache.logger.FileLogger;
 
 public class Japache {
     

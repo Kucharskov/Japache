@@ -8,8 +8,8 @@ import java.nio.file.Files;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import projekt.japache.Japache;
 
+import projekt.japache.Japache;
 import projekt.japache.logger.EventLogger;
 import projekt.japache.logger.EventLogger.LogLevel;
 import projekt.japache.config.ConfigLoader;

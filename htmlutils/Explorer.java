@@ -70,10 +70,11 @@ public class Explorer implements IPage {
             //Listowanie wszystkich katalogów
             dirs.forEach((d) -> {
                 String path = getRelativePath(d).toString();
-                String name = "/" + d.getFileName().toString() + "/";
+                String name = "\\" + d.getFileName().toString() + "\\";
 
                 builder.append(getRow(path, name, "&nbsp;"));
             });
+            
             //Listowanie wszystkich plików
             files.forEach((f) -> {
                 try {
