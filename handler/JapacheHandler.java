@@ -51,19 +51,19 @@ public class JapacheHandler implements HttpHandler {
         //Zwrócenie błędu 500 przy błędzie niespójności plików serwera
         if (!checkIntegrity()) {
             response = PageFactory.createError(500).getHTML();
-            response(exchange, 500, response.getBytes("UTF-8"), "text/html");
+            response(exchange, 500, response.getBytes(), "text/html");
             return;
         }
         //Zwrócenie błędu 501 przy zapytaniu innym niż GET lub HEAD
         if (!method.equals("GET") && !method.equals("HEAD")) {
             response = PageFactory.createError(501).getHTML();
-            response(exchange, 501, response.getBytes("UTF-8"), "text/html");
+            response(exchange, 501, response.getBytes(), "text/html");
             return;
         }
         //Zwrócenie błedu 404 jeżeli plik nie instnieje
         if (!Files.exists(path)) {
             response = PageFactory.createError(404).getHTML();
-            response(exchange, 404, response.getBytes("UTF-8"), "text/html");
+            response(exchange, 404, response.getBytes(), "text/html");
             return;
         }
         //Jeżeli podany adres jest katalogiem
@@ -75,13 +75,13 @@ public class JapacheHandler implements HttpHandler {
                 //ale włączone jest listowanie katalogów - wyświetlenie zawartości katalogu
                 if (config.get("dir_listing").equals("true")) {
                     response = PageFactory.createExplorer(root, path).getHTML();
-                    response(exchange, 200, response.getBytes("UTF-8"), "text/html");
+                    response(exchange, 200, response.getBytes(), "text/html");
                     return;
                 } 
                 //w przeciwnym wypadku zwrócenie błędu 403
                 else {
                     response = PageFactory.createError(403).getHTML();
-                    response(exchange, 403, response.getBytes("UTF-8"), "text/html");
+                    response(exchange, 403, response.getBytes(), "text/html");
                     return;
                 }
             }
