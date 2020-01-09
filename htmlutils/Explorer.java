@@ -16,7 +16,7 @@ public class Explorer implements IPage {
     private final ArrayList<Path> dirs;
 
     //Konstruktor przyjmujący katalog i katalog główny
-    public Explorer(Path root, Path dir) throws IOException {
+    Explorer(Path root, Path dir) throws IOException {
         this.root = root;
         this.dir = dir;
         this.files = new ArrayList<>();
