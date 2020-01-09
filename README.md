@@ -28,4 +28,4 @@ Projekt został wykonany przez studentów Politechniki Śląskiej na wydziale Wy
 - Dodanie graficznego interfejsu użytkownika (z ciągłym wsparciem dla tekstowych konsoli systemu Linux)
 - Dodanie systemu wielu języków
 - Dodanie obsługi SSL
-> **Notka:** Repozytorium w celach archiwalnych, nie zanosi się na wprowadzanie poprawek :)
+> **Notka:** Repozytorium w celach archiwalnych, nie zanosi się na wprowadzanie poprawek, chociaż czasami wrzuce jakiś hotfix :)
