@@ -22,7 +22,6 @@ public class JapacheHandler implements HttpHandler {
     //Pole prywatne zawierające ścieżkę do głównego katalogu z danymi
     private final Path root;
 
-    //Konstruktor handlera przyjmujący instancję konfiguracji
     public JapacheHandler(ConfigLoader config) {
         this.config = config;
         this.root = Paths.get(config.get("root_dir"));
@@ -44,7 +43,7 @@ public class JapacheHandler implements HttpHandler {
 
         //Pobranie rodzaju zapytania (GET, POST, DELETE, PUSH)
         String method = exchange.getRequestMethod();
-        //Sklejenie całej ścieżki do folderu
+        //Sklejenie całej ścieżki
         Path path = Paths.get(root + exchange.getRequestURI().getPath());
         String response;
 
@@ -68,7 +67,7 @@ public class JapacheHandler implements HttpHandler {
         }
         //Jeżeli podany adres jest katalogiem
         if (Files.isDirectory(path)) {
-            //znalezienie główny plik w katalogu
+            //znalezienie głównego pliku w katalogu
             Path dirIndex = findDirIndex(path);
             //Jeżeli go nie znaleziono głównego pliku
             if (dirIndex == null) {
@@ -107,11 +106,9 @@ public class JapacheHandler implements HttpHandler {
             EventLogger.log(LogLevel.DEBUG, "Zwrócony MimeType: " + mimetype);
         }
 
-        //Ustawienie odpowiedniego MimeType odpowiedzi
+        //Ustawienie odpowiedniego MimeType oraz wysłanie odpowiedzi
         exchange.getResponseHeaders().set("Content-Type", mimetype);
-        //Ustaweinie długości odpowiedzi
         exchange.sendResponseHeaders(code, bytes.length);
-        //Wysłanie odpowiedzi
         OutputStream os = exchange.getResponseBody();
         os.write(bytes);
         os.close();

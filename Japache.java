@@ -14,11 +14,10 @@ import projekt.japache.handler.JapacheHandler;
 
 public class Japache {
 
-    //Główna metoda projektu
     public static void main(String[] args) throws IOException {
         EventLogger.log(LogLevel.NORMAL, "Uruchomiono serwer Japache");
 
-        //Pobranie konfiguracji z pliku config.properties klasą ConfigLoader
+        //Pobranie konfiguracji z pliku config.properties
         //oraz przeparsowanie danych na port i hostname serwera
         ConfigLoader config = new ConfigLoader("config.properties");
         int port = Integer.parseInt(config.get("port"));
@@ -28,11 +27,8 @@ public class Japache {
             //Utworzenie instancji serwera pod danym hostname i portem
             HttpServer server = HttpServer.create();
             server.bind(new InetSocketAddress(hostname, port), 0);
-            //Ustawienie serwera na działanie dwuwątkowe
             server.setExecutor(Executors.newFixedThreadPool(2));
-            //Podpięcie pod główny kontekst "/" naszego handlera
             server.createContext("/", new JapacheHandler(config));
-            //Start serwera
             server.start();
 
             EventLogger.log(LogLevel.NORMAL, "Adres serwera: " + hostname + ":" + port);

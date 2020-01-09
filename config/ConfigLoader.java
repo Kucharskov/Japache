@@ -17,13 +17,11 @@ public class ConfigLoader {
     //Pole prywatne zawierające pary "klucz" => "wartość"
     private final Properties config;
 
-    //Konstruktor ładujący konfigruację z pliku
     public ConfigLoader(String file) throws IOException {
         this.config = new Properties();
 
         Path path = Paths.get(file);
         if (Files.exists(path)) {
-            //Załadowanie konfigruacji z pliku
             config.load(Files.newInputStream(path));
 
             EventLogger.log(LogLevel.NORMAL, "Wczytano ustawienia z pliku config.properties");
