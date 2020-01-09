@@ -39,7 +39,8 @@ public class JapacheHandler implements HttpHandler {
     //Główna metoda obsługująca żądania
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        EventLogger.log(LogLevel.NORMAL, "Żądanie adresu: " + exchange.getRequestURI().getPath());
+        //Logowanie zapytania
+        EventLogger.log(LogLevel.NORMAL, exchange.getRemoteAddress().getHostString() + " - \"" + exchange.getRequestURI().getPath() + "\"");
 
         //Pobranie rodzaju zapytania (GET, POST, DELETE, PUSH)
         String method = exchange.getRequestMethod();
@@ -99,7 +100,6 @@ public class JapacheHandler implements HttpHandler {
     private void response(HttpExchange exchange, int code, byte[] bytes, String mimetype) throws IOException {
         //Informacje debugowe dla zapytania
         if (config.get("debug_mode").equals("true")) {
-            EventLogger.log(LogLevel.DEBUG, "Adres IP nadawcy: " + exchange.getRemoteAddress().getHostString());
             EventLogger.log(LogLevel.DEBUG, "Parametry zapytania: " + exchange.getRequestURI().getQuery());
             EventLogger.log(LogLevel.DEBUG, "Metoda zapytania: " + exchange.getRequestMethod());
             EventLogger.log(LogLevel.DEBUG, "Kod odpowiedzi: " + code);
